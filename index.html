@@ -3,245 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>स्वदेशी भारत - भारतीय उत्पादों को बढ़ावा</title>
+    <title>स्वदेशी भारत - भारतीय उत्पादों और विचारों को बढ़ावा</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+        }
+        
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --light-green: #4CAF50;
+            --dark-green: #0A5C08;
+            --gray: #f5f7fa;
+            --dark-gray: #333;
         }
         
         body {
-            background: #f4f4f9;
+            background-color: var(--gray);
             color: #333;
-            text-align: center;
             line-height: 1.6;
-        }
-        
-        header {
-            background: #ff9933;
-            color: white;
-            padding: 30px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 0 20px;
         }
         
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+            color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin: 0 15px;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #ffd700;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1529255484355-cb73c33c04bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: white;
-            padding: 100px 20px;
-            margin: 30px 0;
-            border-radius: 12px;
+            background: url('https://images.unsplash.com/photo-1529255484355-cb73c33c04bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            padding: 100px 0;
+            text-align: center;
+            color: var(--white);
+            position: relative;
         }
         
-        .hero h2 {
-            font-size: 2.2rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn {
             display: inline-block;
-            background: #138808;
-            color: white;
-            padding: 14px 30px;
+            background: var(--green);
+            color: var(--white);
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            border: 2px solid #138808;
-            margin: 10px;
+            border: 2px solid var(--green);
         }
         
         .btn:hover {
             background: transparent;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: var(--white);
+            border-color: var(--white);
         }
         
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* Mission Section */
+        .mission {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-green);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--saffron);
+        }
+        
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin: 50px 0;
+            margin-top: 40px;
         }
         
-        .feature-card {
-            background: white;
-            border-radius: 12px;
+        .mission-card {
+            background: var(--gray);
+            border-radius: 10px;
             padding: 30px;
-            width: 300px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
         }
         
-        .feature-card:hover {
+        .mission-card:hover {
             transform: translateY(-10px);
         }
         
-        .feature-card h3 {
-            color: #138808;
+        .mission-card i {
+            font-size: 3rem;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+        
+        .mission-card h3 {
             margin-bottom: 15px;
+            color: var(--dark-green);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: var(--gray);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
             font-size: 1.5rem;
         }
         
-        .url-box {
-            background: #e8f4fd;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 40px 0;
-            border-left: 5px solid #2196F3;
-        }
-        
-        .url-box h3 {
-            color: #2196F3;
-            margin-bottom: 15px;
-        }
-        
-        .website-url {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #1565C0;
-            margin: 20px 0;
-            word-break: break-all;
-        }
-        
-        .instructions {
-            text-align: left;
-            max-width: 800px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-        
-        .instructions h3 {
-            color: #ff9933;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .instructions ol {
-            padding-left: 20px;
-        }
-        
-        .instructions li {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        footer {
-            background: #138808;
-            color: white;
+        .product-content {
             padding: 20px;
-            margin-top: 50px;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-green);
+        }
+        
+        .product-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, var(--saffron) 0%, var(--green) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background: var(--white);
+            color: var(--green);
+        }
+        
+        .cta .btn:hover {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--saffron);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--saffron);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--saffron);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         @media (max-width: 768px) {
-            .features {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background: var(--green);
+                width: 100%;
+                height: calc(100vh - 70px);
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
+                transition: all 0.3s;
             }
             
-            .feature-card {
-                width: 100%;
-                max-width: 350px;
+            .nav-menu.active {
+                left: 0;
             }
             
-            .hero {
-                padding: 60px 20px;
+            .nav-menu li {
+                margin: 15px 0;
             }
             
-            h1 {
-                font-size: 2rem;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .hero h2 {
-                font-size: 1.8rem;
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .mission-card, .product-card {
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>स्वदेशी भारत</h1>
-        <p class="tagline">भारतीय उत्पादों और विचारों को बढ़ावा</p>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-flag"></i> स्वदेशी भारत
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#home">होम</a></li>
+                <li><a href="#mission">हमारा मिशन</a></li>
+                <li><a href="#products">उत्पाद</a></li>
+                <li><a href="#ideas">विचार</a></li>
+                <li><a href="#contact">संपर्क 7206212090
+            </ul>
+        </div>
     </header>
-    
-    <div class="container">
-        <div class="hero">
-            <h2>आत्मनिर्भर भारत की ओर</h2>
-            <p>हम भारत में निर्मित उत्पादों और विचारों को बढ़ावा देने के लिए प्रतिबद्ध हैं। आइए मिलकर भारत को आत्मनिर्भर बनाएं।</p>
-            <a href="#mission" class="btn">हमारा मिशन</a>
-            <a href="#products" class="btn">उत्पाद देखें</a>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>स्वदेशी भारत - आत्मनिर्भर भारत</h1>
+            <p>भारत में बने उत्पादों और विचारों को बढ़ावा देने के लिए एक पहल। आइए मिलकर भारत को आत्मनिर्भर बनाएं।</p>
+            <a href="#mission" class="btn">हमारे मिशन के बारे में जानें</a>
         </div>
-        
-        <div class="url-box">
-            <h3>आपकी वेबसाइट का URL</h3>
-            <p>नीचे दिए गए URL पर क्लिक करके आप अपनी वेबसाइट देख सकते हैं:</p>
-            <div class="website-url">
-                https://deepak93158-art.github.io/Swadeshibharat/
-            </div>
-            <a href="https://deepak93158-art.github.io/Swadeshibharat/" class="btn" target="_blank">वेबसाइट देखें</a>
-        </div>
-        
-        <div class="instructions">
-            <h3>यदि वेबसाइट नहीं दिख रही है, तो इन steps को follow करें:</h3>
-            <ol>
-                <li>अपने GitHub account में login करें</li>
-                <li><strong>deepak93158-art/Swadeshibharat</strong> repository में जाएं</li>
-                <li>"Settings" tab पर क्लिक करें</li>
-                <li>बाएं menu में "Pages" option select करें</li>
-                <li>"Source" section में, branch को <strong>main</strong> पर set करें</li>
-                <li>Folder को <strong>/root</strong> पर set करें</li>
-                <li>Save बटन पर क्लिक करें</li>
-                <li>कुछ minutes wait करें (अधिकतम 10 minutes)</li>
-                <li>फिर से ऊपर दिए गए URL पर जाकर check करें</li>
-            </ol>
-        </div>
-        
-        <div class="features">
-            <div class="feature-card">
-                <h3>स्वदेशी उत्पाद</h3>
-                <p>भारत में निर्मित उच्च गुणवत्ता वाले उत्पादों की खोज करें और उन्हें सीधे खरीदें।</p>
-            </div>
-            <div class="feature-card">
-                <h3>भारतीय विचार</h3>
-                <p>भारतीय उद्यमियों और नवप्रवर्तनकर्ताओं के विचारों को सपोर्ट करें और उन्हें आगे बढ़ाएं।</p>
-            </div>
-            <div class="feature-card">
-                <h3>आत्मनिर्भर भारत</h3>
-                <p>आत्मनिर्भर भारत के निर्माण में योगदान दें और देश की अर्थव्यवस्था को मजबूत करें।</p>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <h2 class="section-title">हमारा मिशन</h2>
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>स्वदेशी को बढ़ावा</h3>
+                    <p>हम भारत में निर्मित उत्पादों और सेवाओं को बढ़ावा देने के लिए प्रतिबद्ध हैं।</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>भारतीय विचारों का समर्थन</h3>
+                    <p>हम भारतीय नवप्रवर्तनकर्ताओं और उद्यमियों के विचारों को सपोर्ट करते हैं।</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>आत्मनिर्भर भारत</h3>
+                    <p>हम आत्मनिर्भर भारत के निर्माण में योगदान देने के लिए काम कर रहे हैं।</p>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <footer>
-        <p>© 2023 स्वदेशी भारत | भारत में निर्मित</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">लोकप्रिय स्वदेशी उत्पाद</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>हथकरघा वस्त्र</h3>
+                        <p>पारंपरिक भारतीय हथकरघा उद्योग द्वारा निर्मित उच्च गुणवत्ता वाले वस्त्र।</p>
+                        <a href="#" class="btn">अधिक जानें</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>आयुर्वेदिक उत्पाद</h3>
+                        <p>प्राकृतिक और आयुर्वेदिक उत्पाद जो स्वास्थ्य और तंदुरुस्ती को बढ़ावा देते हैं।</p>
+                        <a href="#" class="btn">अधिक जानें</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>भारतीय खाद्य उत्पाद</h3>
+                        <p>शुद्ध और परंपरागत भारतीय खाद्य उत्पाद जो स्वाद और स्वास्थ्य से भरपूर हैं।</p>
+                        <a href="#" class="btn">अधिक जानें</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-toolbox"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>हस्तशिल्प</h3>
+                        <p>भारतीय कारीगरों द्वारा हाथ से बनाए गए सुंदर और अनोखे हस्तशिल्प उत्पाद।</p>
+                        <a href="#" class="btn">अधिक जानें</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ideas Section -->
+    <section class="mission" id="ideas">
+        <div class="container">
+            <h2 class="section-title">भारतीय विचारों को बढ़ावा</h2>
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>स्टार्टअप इन्क्यूबेशन</h3>
+                    <p>हम भारतीय स्टार्टअप्स को बढ़ावा देने और उन्हें सहायता प्रदान करने के लिए काम करते हैं।</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>शिक्षा और प्रशिक्षण</h3>
+                    <p>युवाओं को उद्यमिता और नवाचार के लिए शिक्षित और प्रशिक्षित करना।</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>सहयोग और नेटवर्किंग</h3>
+                    <p>भारतीय उद्यमियों और नवप्रवर्तनकर्ताओं के बीच सहयोग और नेटवर्किंग को बढ़ावा देना।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>आत्मनिर्भर भारत के निर्माण में शामिल हों</h2>
+            <p>स्वदेशी उत्पादों को खरीदकर, भारतीय विचारों का समर्थन करके और इस आंदोलन को फैलाकर भारत को आत्मनिर्भर बनाने में हमारा सहयोग करें।</p>
+            <a href="#contact" class="btn">हमसे जुड़ें</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>स्वदेशी भारत</h3>
+                    <p>भारत में बने उत्पादों और विचारों को बढ़ावा देने के लिए समर्पित एक पहल।</p>
+                    <div class="social-icons">
+                       
+                        <a href="#"><i class="fab fa-youtube"Risky Trader
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>जल्दी लिंक</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">होम</a></li>
+                        <li><a href="#mission">हमारा मिशन</a></li>
+                        <li><a href="#products">उत्पाद</a></li>
+                        <li><a href="#ideas">विचार</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>संपर्क करें</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> गांव कैल जगाधरी, भारत</li>
+                        <li><i class="fas fa-phone"></i> +91 7206212090</li>
+                        <li><i class="fas fa-envelope"></i> Deepak93158@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 स्वदेशी भारत | भारत में निर्मित with <i class="fas fa-heart" style="color: #ff0000;"></i></p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
